@@ -12,6 +12,6 @@ router.get('/',(req, res, next) => {
 
 router.post('/create',adminController.create)
 
-router.post('/login',adminController.login)
+router.post('/auth',adminController.login)
 
 export { router as admin }

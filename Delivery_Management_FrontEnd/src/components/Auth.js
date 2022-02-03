@@ -4,7 +4,7 @@ import {useLocation, useNavigate} from 'react-router-dom'
 import axios from '../api/axios';
 // import { UserContext } from "../App";
 
-const LOGIN_URL = '/login';
+const LOGIN_URL = '/auth';
 
 export function Auth({role}) {
       
@@ -13,9 +13,6 @@ export function Auth({role}) {
       const navigate = useNavigate();
       const location = useLocation();
       // const { user ,setUser } = useContext(UserContext)
-
-
-
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');
       const [errMsg, setErrMsg] = useState('');

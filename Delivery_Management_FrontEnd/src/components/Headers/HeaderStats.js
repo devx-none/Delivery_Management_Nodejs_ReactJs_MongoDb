@@ -11,6 +11,7 @@ import CardStats from "../Cards/CardStats.js";
 export default function HeaderStats() {
   const [reserved ,setReserved] = useState([]);
   const [pendings,setPendings] = useState([]);
+  const [TotalDelivery,setTotalDelivery] = useState([]);
 
   
   useEffect(() => {
@@ -31,6 +32,7 @@ export default function HeaderStats() {
     .then(res =>{
       setReserved(res.data.reserved)
       setPendings(res.data.pending)
+      setTotalDelivery(res.data.total)
     })
     .catch(err =>{console.log(err)
     })
@@ -51,9 +53,9 @@ export default function HeaderStats() {
                   statSubtitle="DELIVERY RESERVED"
                   statTitle={reserved}
                   statArrow="up"
-                  statPercent="3.48"
+                  statPercent=""
                   statPercentColor="text-emerald-500"
-                  statDescripiron="Since last month"
+                  statDescripiron=" last month"
                   statIconName="fas fa-truck"
                   statIconColor="bg-teal-500"
                 />
@@ -65,9 +67,21 @@ export default function HeaderStats() {
                   statArrow="down"
                   statPercent=""
                   statPercentColor="text-red-500"
-                  statDescripiron="Since last week"
+                  statDescripiron=" last month"
                   statIconName="fas fa-truck"
                   statIconColor="bg-orange-500"
+                />
+              </div>
+              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+                <CardStats
+                  statSubtitle="DELIVERIES TOTAL"
+                  statTitle={TotalDelivery}
+                  statArrow=""
+                  statPercent=""
+                  statPercentColor="text-red-500"
+                  statDescripiron=" each year"
+                  statIconName="fas fa-truck"
+                  statIconColor="bg-blue-500"
                 />
               </div>
             

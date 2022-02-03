@@ -153,7 +153,7 @@ export default function CardDeliveries({ color, Deliveries }) {
                                                             : 'text-white')
                                                 }
                                           >
-                                                Managers Tables
+                                                Deliveries Tables
                                           </h3>
                                     </div>
                               </div>

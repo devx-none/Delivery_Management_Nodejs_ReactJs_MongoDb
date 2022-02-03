@@ -2,9 +2,9 @@ import React from 'react';
 import { Auth } from '../../components/Auth';
 
 
-export function AuthManager () { 
+export function AuthManager ({role}) { 
 
 return (
-    <Auth />
+    <Auth role={role} />
     );
 }

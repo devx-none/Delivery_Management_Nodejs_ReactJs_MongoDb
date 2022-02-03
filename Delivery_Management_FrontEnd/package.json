@@ -25,12 +25,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": " react-scripts start",
+    "start": "npm run watch:css && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
-    "watch:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css"
+    "watch:css": "postcss w- src/assets/styles/tailwind.css -o src/assets/styles/main.css"
   },
   "eslintConfig": {
     "extends": [

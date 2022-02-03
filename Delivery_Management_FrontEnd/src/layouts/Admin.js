@@ -14,12 +14,15 @@ import TablesAdmin from '../views/admin/Manager.js';
 import DashboardManager from '../views/manager/Dashboard.js';
 import TablesManager from '../views/manager/Tables.js';
 import Delivery from '../views/admin/Delivery.js';
+import DashboardDM from '../views/DeliveryManager/Dashboard';
+// import TablesDM from '../views/DeliveryManager/Tables';
+
 
 export function Admin() {
       
       return (
             <>
-                  <Sidebar />
+                  <Sidebar  />
                   <div className="relative md:ml-64 bg-blueGray-100">
                         <Navbar />
                         {/* Header */}
@@ -45,6 +48,14 @@ export function Admin() {
                                                 path="/manager/tables" 
                                                 element={<TablesManager page="manager"/>}
                                           />
+                                            <Route
+                                                path="/deliveryManager/dashboard"  
+                                                element={<DashboardDM  page="deliveryManager" />}
+                                          />
+                                          {/* <Route
+                                                path="/deliveryManager/tables" 
+                                                element={<TablesDM page="deliveryManager"/>}
+                                          /> */}
                                        
                                     </Routes>
                                    

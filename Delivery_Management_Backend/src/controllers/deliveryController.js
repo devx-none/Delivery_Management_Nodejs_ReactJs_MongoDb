@@ -62,13 +62,24 @@ exports.getDeliveries =  async (req, res) => {
 //statistic deliveries
 
 exports.StatDeliveries =  async (req, res) => {
-  const reserved = await deliveryModel.count({status :"reserved"});
-  const pending = await deliveryModel.count({status :"pending"});
-  if (reserved && pending) {
+  var date = new Date(), y = date.getFullYear(), m = date.getMonth();
+  var firstDay = new Date(y, m, 1);
+  var lastDay = new Date(y, m + 1, 0);
+  const reserved = await deliveryModel.find({"createdAt": { 
+    "$gte": firstDay, 
+    "$lte": lastDay}
+  }).count({status :"reserved"})
+  const pending = await deliveryModel.find({"createdAt": { 
+    "$gte": firstDay, 
+    "$lte": lastDay}
+  }).count({status :"pending"});
+  const total = await deliveryModel.count();
+  if (reserved || pending) {
     
     res.json({
       reserved,
-      pending
+      pending,
+      total
     })
 } else {
     res.json({
