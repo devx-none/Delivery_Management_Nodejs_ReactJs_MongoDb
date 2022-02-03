@@ -16,8 +16,7 @@ exports.create = async (req, res) => {
   const { type, from, to, weight } = req.body;
   const dist = await distance(req, res);
   const price = await calculatePrice(req, res);
-  console.log(dist);
-  console.log(`Price :${price}`);
+  
   const delivery = new deliveryModel({
     type,
     from,
@@ -60,8 +59,8 @@ exports.getDeliveries =  async (req, res) => {
  
 }
 
-//statistic delivery
-// get All Delivery
+//statistic deliveries
+
 exports.StatDeliveries =  async (req, res) => {
   const reserved = await deliveryModel.count({status :"reserved"});
   const pending = await deliveryModel.count({status :"pending"});
@@ -76,8 +75,6 @@ exports.StatDeliveries =  async (req, res) => {
         message: "Not found deliveries reserved"
     })
 }
-
-
  
 }
 
@@ -94,8 +91,7 @@ exports.validate =  async (req, res) => {
   //get driver by type car
   const driver = await driverModel.find({ car: car }).select('name email').exec();
   driver.map(eachResult=>{
-      console.log(delivery._id);
-      console.log(eachResult._id);
+    
     EmailConfirmation(eachResult.email,delivery._id,eachResult._id);
 })
   console.log(driver);
