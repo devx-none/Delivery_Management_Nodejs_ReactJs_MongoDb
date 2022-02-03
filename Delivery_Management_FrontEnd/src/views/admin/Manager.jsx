@@ -7,7 +7,7 @@ const LOGIN_URL = '/all';
 
 // components
 
-import CardTable from "../../components/Cards/CardTable.js";
+import CardTable from "../../components/Cards/CardTable.jsx";
 
 export default function Manager() {
   const [managers ,setManagers] = useState([]);

@@ -6,7 +6,7 @@ import axios from '../../api/axios';
 const _URL = '/stat';
 // components
 
-import CardStats from "../Cards/CardStats.js";
+import CardStats from "../Cards/CardStats.jsx";
 
 export default function HeaderStats() {
   const [reserved ,setReserved] = useState([]);

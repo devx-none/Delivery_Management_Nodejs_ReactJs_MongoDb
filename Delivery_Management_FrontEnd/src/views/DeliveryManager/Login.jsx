@@ -5,6 +5,6 @@ import { Auth } from '../../components/Auth';
 export function AuthDeliveryManager () { 
 
 return (
-    <Auth />
+    <Auth role="deliveryManager" />
     );
 }
